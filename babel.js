@@ -11,7 +11,7 @@
  * qu'il propose.
  * 
  * AUTHOR : Com (Comdec35000)
- * VERSION : 1.0.0 2021/10/27
+ * VERSION : 1.1.0 2021/10/28
 */
 
 const fs = require('fs');
@@ -48,6 +48,26 @@ class Babel {
 
         return txt;
 
+    }
+
+    static localizeFormated(pos, lang) {
+
+        var text = Babel.localize(pos, lang);
+
+        delete arguments[0];
+        delete arguments[1];
+
+        return Babel.format(text, arguments);
+    }
+
+    static format(string) {
+        let a = string;
+        delete arguments[0];
+
+        Object.values(arguments).forEach((v, i) => {
+            a = a.replace("<" + i + "/>", Object.values(v)[0]);
+        });
+        return a;
     }
 
     static genFiles() {
