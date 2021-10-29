@@ -20,7 +20,7 @@ const fs = require('fs');
 class Babel {
 
     static config = {
-        langDirPath: __dirname + './',
+        langDirPath: __dirname + '/',
         langages: [
             'fr_fr',
             'en_us'
