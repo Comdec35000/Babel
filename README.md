@@ -13,7 +13,7 @@ var Eaque = require('<path_to_file>/babel.js');
 Il faut ensuite modifier les configurations de Babel afin d'ajouter les langages voulu, changer le langage par défaut et le chemin où se génèreront les fichiers de localisations.
 ```js
 static config = {
-	langDirPath:  './',
+	langDirPath:  __dirname + '/',
 	langages: [
 		'fr_fr',
 		'en_us'
@@ -21,7 +21,7 @@ static config = {
 	defaultLang:  'en_us'
 };
 ```
-Pour initialiser le module afin qu'il génère ses fichiers il suffit d'utiliser la méthode statique Babel#genFiles, puis d'utiliser la méthode Babel#localize en passant comme argument le unlocalized string ainsi que le langage choisi pour qu'il retourne le texte que vous avez configuré dans le json correspondant.
+Pour initialiser le module afin qu'il génère ses fichiers il suffit d'utiliser la méthode statique `Babel#genFiles`, puis d'utiliser la méthode `Babel#localize` en passant comme argument le unlocalized string ainsi que le langage choisi pour qu'il retourne le texte que vous avez configuré dans le json correspondant. Vous trouverez ce json de traduction à l'endroit que vous avez indiqué dans `Babel.config.langDirPath`.
 
 ```js
 const Babel = require('./babel.js');
@@ -48,3 +48,5 @@ Ce qui donnera  :
 -> Bonjour !
 -> Hello !
 ```
+
+Vous pouvez également formater vos messages avec la méthode `Babel#localizeFormated` pour pouvoir remplacer les balises `<nombre/>` dans vos lignes de texte traduites, et donc simplifier la modification de vos messages.
