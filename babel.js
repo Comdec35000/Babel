@@ -20,7 +20,7 @@ const fs = require('fs');
 class Babel {
 
     static config = {
-        langDirPath: './',
+        langDirPath: __dirname + './',
         langages: [
             'fr_fr',
             'en_us'
@@ -64,8 +64,8 @@ class Babel {
         let a = string;
         delete arguments[0];
 
-        Object.values(arguments).forEach((v, i) => {
-            a = a.replace("<" + i + "/>", Object.values(v)[0]);
+        Object.values(arguments[1]).forEach((v, i) => {
+            a = a.replace("<" + i + "/>", v);
         });
         return a;
     }
