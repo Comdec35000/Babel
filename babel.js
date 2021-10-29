@@ -11,7 +11,7 @@
  * qu'il propose.
  * 
  * AUTHOR : Com (Comdec35000)
- * VERSION : 1.1.0 2021/10/28
+ * VERSION : 1.1.1 2021/10/28
 */
 
 const fs = require('fs');
