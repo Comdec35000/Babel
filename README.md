@@ -28,8 +28,8 @@ const Babel = require('./babel.js');
 
 Babel.genFiles();
 
-console.log(Babel.localize('text.hello'), 'fr_fr');
-console.log(Babel.localize('text.hello'), 'en_us');
+console.log(Babel.localize('text.hello', 'fr_fr'));
+console.log(Babel.localize('text.hello', 'en_us'));
 ```
 fr_fr.json :
 ```json
@@ -50,3 +50,20 @@ Ce qui donnera  :
 ```
 
 Vous pouvez également formater vos messages avec la méthode `Babel#localizeFormated` pour pouvoir remplacer les balises `<nombre/>` dans vos lignes de texte traduites, et donc simplifier la modification de vos messages.
+
+```js
+let arg0 = "Finn";
+let arg1 = "John";
+let arg2 = "Peter";
+
+console.log(Babel.localizeFormated('text.hello', 'fr_fr', arg0, arg1, arg2));
+```
+```json
+{
+	"Hello <0/>, <1/> and <2/> !"
+}
+```
+Ce qui renverra :
+```
+Hello Finn, John and Peter !
+```
